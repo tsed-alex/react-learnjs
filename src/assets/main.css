@@ -1,0 +1,18 @@
+.restaurant-wrapper {
+    padding: 20px;
+}
+
+.restaurant-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 50%;
+}
+
+.ingredients {
+    color: #9F9F9F;
+}
