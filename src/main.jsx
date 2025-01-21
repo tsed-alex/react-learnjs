@@ -9,12 +9,12 @@ const reactRoot = createRoot(rootElement);
 reactRoot.render(
     <div className='restaurant-wrapper'>
         {restaurants.map((restaurant, index) => (
-            <div>
+            <div key={restaurant.id}>
                 <div className='restaurant-name'>{restaurant.name}</div>
                 <h3>Menu</h3>
                 <ul>{
                     restaurant.menu.map((item, index) => (
-                        <li key={index}>
+                        <li key={item.id}>
                             <div className='menu-item'>
                                 <div className='menu-description'>
                                     <div>{item.name}</div>
@@ -28,7 +28,7 @@ reactRoot.render(
                 <h3>Reviews</h3>
                 <ul>{
                     restaurant.reviews.map((item, index) => (
-                        <li>
+                        <li key={item.id}>
                             <div>{item.user}:</div>
                             <div>{item.text}</div>
                             <div>Rating: {item.rating}</div>
