@@ -1,17 +1,18 @@
 import {useState} from "react";
 import {TabsController} from "./tabs-controller/TabsController";
 import {RestaurantViewer} from "./restaurant-viewer/RestaurantViewer";
+import {restaurants} from "../../../materials/mock";
 
 export const RestaurantPage = () => {
-    const [activeRestaurant, setActiveRestaurant] = useState(0);
+    const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
-    const chooseRestaurantFn = (index) => {
-        setActiveRestaurant(index);
+    const chooseRestaurantFn = (active) => {
+        setActiveRestaurant(active);
     }
 
     return (
         <>
-            <TabsController chooseRestaurantFn={chooseRestaurantFn}/>
+            <TabsController restaurants={restaurants} chooseRestaurantFn={chooseRestaurantFn}/>
             <RestaurantViewer activeRestaurant={activeRestaurant} />
         </>
     );
