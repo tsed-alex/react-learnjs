@@ -1,3 +1,6 @@
+@import "normalize.css";
+@import "components/index.css";
+
 .restaurant-wrapper {
     padding: 20px;
 }
@@ -16,3 +19,4 @@
 .ingredients {
     color: #9F9F9F;
 }
+/* такое чувство что в реальных проектах реактовских такую структуру стилей не используют, надеюсь на подсказку*/

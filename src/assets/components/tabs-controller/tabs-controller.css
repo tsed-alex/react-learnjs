@@ -1,0 +1,9 @@
+.tabs-controller {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs-controller__button {
+    width: 150px;
+    font-size: 24px;
+}
