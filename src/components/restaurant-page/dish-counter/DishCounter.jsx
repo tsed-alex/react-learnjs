@@ -1,11 +1,14 @@
-import React from 'react';
 import { Counter } from '../counter/Counter';
 
-export const DishCounter = ({ value, onChange }) => {
+export const DishCounter = ({ count, onIncrement, onDecrement }) => {
     return (
         <div>
             <span>Rating:</span>
-            <Counter value={value} onChange={onChange} />
+            <Counter
+                value={count}
+                onIncrement={onIncrement}
+                onDecrement={onDecrement}
+            />
         </div>
     );
 };

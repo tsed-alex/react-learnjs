@@ -48,11 +48,7 @@ export const useReviewForm = () => {
     };
 
     return {
-        form: {
-            name: form.name,
-            text: form.text,
-            rating: form.rating
-        },
+        form: form,
         updateName: setName,
         updateText: setText,
         updateRating: setRating,

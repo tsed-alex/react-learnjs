@@ -1,27 +1,20 @@
-import {Counter} from "../counter/Counter";
+import { MenuItem } from './Menu-Item';
 
-export const Menu = ({menu}) => {
-    if(!menu || !menu?.length) {
+export const Menu = ({ menu }) => {
+    if (!menu || !menu?.length) {
         return null;
     }
 
     return (
         <>
             <h3>Menu</h3>
-            <ul>{
-                menu.map((item) => (
+            <ul>
+                {menu.map((item) => (
                     <li key={item.id}>
-                        <div className='menu-item'>
-                            <div className='menu-description'>
-                                <div>{item.name}</div>
-                                <div className='ingredients'>({item.ingredients.join('/')})</div>
-                            </div>
-                            <div className='menu-price'>{item.price}$</div>
-                        </div>
-                        <Counter/>
+                        <MenuItem item={item} />
                     </li>
-                ))
-            }</ul>
+                ))}
+            </ul>
         </>
     );
 };

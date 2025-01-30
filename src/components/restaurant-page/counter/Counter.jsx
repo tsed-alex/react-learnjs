@@ -1,16 +1,8 @@
-import { useCount } from './use-count';
-
-export const Counter = ({ value, onChange }) => {
-    const { count, onDecrement, onIncrement } = useCount(value || 0);
-
-    if (onChange) {
-        onChange(count);
-    }
-
+export const Counter = ({ value, onIncrement, onDecrement }) => {
     return (
         <div>
             <button onClick={onIncrement}>+</button>
-            {count}
+            {value}
             <button onClick={onDecrement}>-</button>
         </div>
     );

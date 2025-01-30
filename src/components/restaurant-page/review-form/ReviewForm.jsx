@@ -1,6 +1,7 @@
 import React from 'react';
 import { DishCounter } from '../dish-counter/DishCounter';
 import { useReviewForm } from './use-review-form';
+import { useDishCounter } from '../dish-counter/use-dish-counter';
 
 export const ReviewForm = () => {
     const {
@@ -10,6 +11,11 @@ export const ReviewForm = () => {
         updateRating,
         resetForm
     } = useReviewForm();
+
+    const { count, onIncrement, onDecrement } = useDishCounter(
+        rating,
+        updateRating
+    );
 
     return (
         <div>
@@ -32,11 +38,11 @@ export const ReviewForm = () => {
             </div>
 
             <DishCounter
-                value={rating}
-                onChange={(event) => updateRating(event)}
+                count={rating}
+                onIncrement={onIncrement}
+                onDecrement={onDecrement}
             />
 
-            {/*// не обновляется стейт компонента рейтинга, почему?*/}
             <button onClick={resetForm}>Clear</button>
         </div>
     );
