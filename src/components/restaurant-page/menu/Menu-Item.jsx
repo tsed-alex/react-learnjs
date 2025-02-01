@@ -1,9 +1,9 @@
 import React from 'react';
 import { Counter } from '../counter/Counter';
-import { useCount } from '../counter/use-count';
+import { useCount } from './use-count';
 
 export const MenuItem = ({ item }) => {
-    const { count, onIncrement, onDecrement } = useCount(0);
+    const { count, onIncrement, onDecrement } = useCount();
 
     return (
         <>

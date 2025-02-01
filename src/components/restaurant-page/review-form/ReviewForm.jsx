@@ -1,21 +1,22 @@
 import React from 'react';
 import { DishCounter } from '../dish-counter/DishCounter';
 import { useReviewForm } from './use-review-form';
-import { useDishCounter } from '../dish-counter/use-dish-counter';
 
 export const ReviewForm = () => {
     const {
         form: { name, text, rating },
         updateName,
         updateText,
-        updateRating,
+        // updateRating,
+        onIncrement,
+        onDecrement,
         resetForm
     } = useReviewForm();
 
-    const { count, onIncrement, onDecrement } = useDishCounter(
-        rating,
-        updateRating
-    );
+    // const { count, onIncrement, onDecrement } = useDishCounter(
+    //     rating,
+    //     updateRating
+    // );
 
     return (
         <div>
