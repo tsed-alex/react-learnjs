@@ -3,7 +3,7 @@ import { TabsController } from './tabs-controller/TabsController';
 import { RestaurantViewer } from './restaurant-viewer/RestaurantViewer';
 import { restaurants } from '../../../materials/mock';
 
-export const RestaurantPage = () => {
+export const RestaurantPage = ({ ref }) => {
     const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
     const chooseRestaurantFn = (active) => {
@@ -19,6 +19,7 @@ export const RestaurantPage = () => {
             <RestaurantViewer
                 activeRestaurant={activeRestaurant}
                 key={activeRestaurant.id}
+                ref={ref}
             />
         </>
     );

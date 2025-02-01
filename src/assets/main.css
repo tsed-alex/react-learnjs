@@ -1,22 +1,10 @@
 @import "normalize.css";
-@import "components/index.css";
 
-.restaurant-wrapper {
-    padding: 20px;
+html, body, #root {
+    width: 100%;
+    height: 100%;
 }
 
-.restaurant-name {
-    font-size: 24px;
-    font-weight: bold;
+* {
+    box-sizing: border-box;
 }
-
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    max-width: 50%;
-}
-
-.ingredients {
-    color: #9F9F9F;
-}
-/* такое чувство что в реальных проектах реактовских такую структуру стилей не используют, надеюсь на подсказку*/
