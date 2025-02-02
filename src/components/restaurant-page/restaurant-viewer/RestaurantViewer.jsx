@@ -4,13 +4,22 @@ import { Restaurant } from '../restaurant/Restaurant';
 import { ReviewForm } from '../review-form/ReviewForm';
 import classNames from 'classnames';
 import styles from './restaurant-viewer.module.scss';
+import { use, useEffect, useRef } from 'react';
+import { ScrollViewContext } from '../../scroll-view-context';
 
-export const RestaurantViewer = ({ activeRestaurant, ref }) => {
+export const RestaurantViewer = ({ activeRestaurant }) => {
+    const refView = useRef(null);
+    const { setScrollViewRef } = use(ScrollViewContext);
+
+    useEffect(() => {
+        setScrollViewRef(refView);
+    }, []);
+
     return (
         <div
             className={classNames(styles.restaurantViewer)}
             id="restaurantViewer"
-            ref={ref}
+            ref={refView}
         >
             <Restaurant activeRestaurant={activeRestaurant}>
                 <Menu menu={activeRestaurant.menu}></Menu>

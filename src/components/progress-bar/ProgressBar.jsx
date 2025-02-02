@@ -1,11 +1,12 @@
 import styles from './progress-bar.module.scss';
 import classNames from 'classnames';
 import { useProgress } from './use-progress';
+import { use } from 'react';
+import { ScrollViewContext } from '../scroll-view-context';
 
-export const ProgressBar = ({ viewerRef }) => {
-    const progress = useProgress(viewerRef);
-    // при переключении активного ресторана, присутствует баг
-    // пропадает реакция на скролл
+export const ProgressBar = () => {
+    const { scrollViewRef } = use(ScrollViewContext);
+    const progress = useProgress(scrollViewRef);
 
     return (
         <div

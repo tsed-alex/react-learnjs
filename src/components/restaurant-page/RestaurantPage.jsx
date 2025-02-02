@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { use, useRef, useState } from 'react';
 import { TabsController } from './tabs-controller/TabsController';
 import { RestaurantViewer } from './restaurant-viewer/RestaurantViewer';
 import { restaurants } from '../../../materials/mock';
 
-export const RestaurantPage = ({ ref }) => {
+export const RestaurantPage = () => {
     const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
     const chooseRestaurantFn = (active) => {
@@ -19,7 +19,6 @@ export const RestaurantPage = ({ ref }) => {
             <RestaurantViewer
                 activeRestaurant={activeRestaurant}
                 key={activeRestaurant.id}
-                ref={ref}
             />
         </>
     );
