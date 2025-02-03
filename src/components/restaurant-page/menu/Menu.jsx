@@ -1,4 +1,4 @@
-import { MenuItem } from './Menu-Item';
+import { MenuItem } from './menu-item/Menu-Item';
 
 export const Menu = ({ menu }) => {
     if (!menu || !menu?.length) {

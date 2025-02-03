@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { use, useRef, useState } from 'react';
 import { TabsController } from './tabs-controller/TabsController';
 import { RestaurantViewer } from './restaurant-viewer/RestaurantViewer';
 import { restaurants } from '../../../materials/mock';

@@ -1,16 +1,18 @@
 import React from 'react';
-import { Counter } from '../counter/Counter';
-import { useCount } from './use-count';
+import { Counter } from '../../counter/Counter';
+import { useCount } from '../use-count';
+import styles from './menu-item.module.scss';
+import classNames from 'classnames';
 
 export const MenuItem = ({ item }) => {
     const { count, onIncrement, onDecrement } = useCount();
 
     return (
         <>
-            <div className="menu-item">
+            <div className={classNames(styles.menuItem)}>
                 <div className="menu-description">
                     <div>{item.name}</div>
-                    <div className="ingredients">
+                    <div className={classNames(styles.ingredients)}>
                         ({item?.ingredients?.join('/')})
                     </div>
                 </div>
