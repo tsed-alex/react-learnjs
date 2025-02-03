@@ -1,7 +1,10 @@
-import {Layout} from "../layout/Layout";
+import { Layout } from '../layout/Layout';
+import { UserContextProvider } from '../user-context/user-context';
 
 export const App = () => {
     return (
-        <Layout/>
+        <UserContextProvider>
+            <Layout />
+        </UserContextProvider>
     );
 };

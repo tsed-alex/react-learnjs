@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Counter } from '../../counter/Counter';
 import { useCount } from '../use-count';
 import styles from './menu-item.module.scss';
 import classNames from 'classnames';
+import { UserContext } from '../../../user-context';
 
 export const MenuItem = ({ item }) => {
     const { count, onIncrement, onDecrement } = useCount();
+    const { user } = use(UserContext);
 
     return (
         <>
@@ -18,11 +20,14 @@ export const MenuItem = ({ item }) => {
                 </div>
                 <div className="menu-price">{item.price}$</div>
             </div>
-            <Counter
-                value={count}
-                onIncrement={onIncrement}
-                onDecrement={onDecrement}
-            />
+
+            {user ? (
+                <Counter
+                    value={count}
+                    onIncrement={onIncrement}
+                    onDecrement={onDecrement}
+                />
+            ) : null}
         </>
     );
 };
