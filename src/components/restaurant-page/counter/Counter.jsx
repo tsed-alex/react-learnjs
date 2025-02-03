@@ -1,9 +1,20 @@
+import { Button } from '../../button/Button';
+import styles from './counter.module.scss';
+
 export const Counter = ({ value, onIncrement, onDecrement }) => {
     return (
         <div>
-            <button onClick={onIncrement}>+</button>
+            <Button
+                onClick={onIncrement}
+                title="+"
+                className={styles.counterButton}
+            />
             {value}
-            <button onClick={onDecrement}>-</button>
+            <Button
+                onClick={onDecrement}
+                title="-"
+                className={styles.counterButton}
+            />
         </div>
     );
 };

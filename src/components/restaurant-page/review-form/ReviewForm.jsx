@@ -1,6 +1,7 @@
 import React from 'react';
 import { DishCounter } from '../dish-counter/DishCounter';
 import { useReviewForm } from './use-review-form';
+import { Button } from '../../button/Button';
 
 export const ReviewForm = () => {
     const {
@@ -44,7 +45,7 @@ export const ReviewForm = () => {
                 onDecrement={onDecrement}
             />
 
-            <button onClick={resetForm}>Clear</button>
+            <Button title="Clear" onClick={resetForm}></Button>
         </div>
     );
 };
