@@ -11,10 +11,10 @@ export const MenuItem = ({ item }) => {
 
     return (
         <>
-            <div className={classNames(styles.menuItem)}>
+            <div className={styles.menuItem}>
                 <div className="menu-description">
                     <div>{item.name}</div>
-                    <div className={classNames(styles.ingredients)}>
+                    <div className={styles.ingredients}>
                         ({item?.ingredients?.join('/')})
                     </div>
                 </div>

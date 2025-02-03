@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 export const useProgress = (viewerRef) => {
     const [progress, setProgress] = useState(0);
-    let callBack = () => {};
 
     useEffect(() => {
+        let callBack = () => {};
         if (viewerRef?.current) {
             callBack = () => {
                 const scrollTop = viewerRef.current.scrollTop;
