@@ -1,17 +1,21 @@
 import { MenuItem } from './menu-item/Menu-Item';
+import { useSelector } from 'react-redux';
+import { selectDishEntities } from '../../../redux/entities/dishes/dishes';
 
-export const Menu = ({ menu }) => {
-    if (!menu || !menu?.length) {
+export const Menu = ({ menuIds }) => {
+    if (!menuIds || !menuIds?.length) {
         return null;
     }
+
+    const menus = useSelector(selectDishEntities);
 
     return (
         <>
             <h3>Menu</h3>
             <ul>
-                {menu.map((item) => (
-                    <li key={item.id}>
-                        <MenuItem item={item} />
+                {menuIds.map((id) => (
+                    <li key={id}>
+                        <MenuItem item={menus[id]} />
                     </li>
                 ))}
             </ul>

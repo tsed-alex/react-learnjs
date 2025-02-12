@@ -2,7 +2,6 @@ import React, { use } from 'react';
 import { Counter } from '../../counter/Counter';
 import { useCount } from '../use-count';
 import styles from './menu-item.module.scss';
-import classNames from 'classnames';
 import { UserContext } from '../../../user-context';
 
 export const MenuItem = ({ item }) => {
