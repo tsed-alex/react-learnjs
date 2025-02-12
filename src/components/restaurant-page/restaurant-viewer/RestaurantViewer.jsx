@@ -6,8 +6,10 @@ import classNames from 'classnames';
 import styles from './restaurant-viewer.module.scss';
 import { use, useEffect, useRef } from 'react';
 import { ScrollViewContext } from '../../scroll-view-context';
+import { useSelector } from 'react-redux';
+import { selectRestaurantsById } from '../../../redux/entities/restaurants/slice';
 
-export const RestaurantViewer = ({ activeRestaurant }) => {
+export const RestaurantViewer = ({ activeRestaurantId }) => {
     const refView = useRef(null);
     const { setScrollViewRef } = use(ScrollViewContext);
 
@@ -15,15 +17,19 @@ export const RestaurantViewer = ({ activeRestaurant }) => {
         setScrollViewRef(refView);
     }, []);
 
+    const activeRestaurant = useSelector((store) =>
+        selectRestaurantsById(store, activeRestaurantId)
+    );
+
     return (
         <div
             className={classNames(styles.restaurantViewer)}
             id="restaurantViewer"
             ref={refView}
         >
-            <Restaurant activeRestaurant={activeRestaurant}>
-                <Menu menu={activeRestaurant.menu}></Menu>
-                <Reviews reviews={activeRestaurant.reviews} />
+            <Restaurant activeRestaurantId={activeRestaurantId}>
+                <Menu menuIds={activeRestaurant.menu}></Menu>
+                <Reviews reviewIds={activeRestaurant.reviews} />
                 <ReviewForm />
             </Restaurant>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,

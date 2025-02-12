@@ -1,20 +1,31 @@
-export const Reviews = ({reviews}) => {
-    if(!reviews || !reviews?.length) {
+import { useSelector } from 'react-redux';
+import { selectReviewEntities } from '../../../redux/entities/reviews/slice';
+import { selectUserEntities } from '../../../redux/entities/users/slice';
+
+export const Reviews = ({ reviewIds }) => {
+    if (!reviewIds || !reviewIds?.length) {
         return null;
     }
+
+    const reviews = useSelector(selectReviewEntities);
+    const users = useSelector(selectUserEntities);
+
+    const getUserNameById = (id) => {
+        return users[id].name;
+    };
 
     return (
         <>
             <h3>Reviews</h3>
-            <ul>{
-                reviews.map((item) => (
-                    <li key={item.id}>
-                        <div>{item.user}:</div>
-                        <div>{item.text}</div>
-                        <div>Rating: {item.rating}</div>
+            <ul>
+                {reviewIds.map((id) => (
+                    <li key={id}>
+                        <div>{getUserNameById(reviews[id].userId)}:</div>
+                        <div>{reviews[id].text}</div>
+                        <div>Rating: {reviews[id].rating}</div>
                     </li>
-                ))
-            }</ul>
+                ))}
+            </ul>
         </>
-    )
+    );
 };
