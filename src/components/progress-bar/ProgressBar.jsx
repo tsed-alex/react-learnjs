@@ -10,10 +10,10 @@ export const ProgressBar = () => {
 
     return (
         <div
-            className={classNames(styles.progressBar)}
+            className={styles.progressBar}
             style={{
                 width: `${progress}%`
             }}
-        ></div>
+        />
     );
 };
